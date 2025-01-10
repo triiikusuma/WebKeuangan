@@ -31,7 +31,7 @@ class ProfileController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class.',email,'.$request->user()->id],
-            'nik' => ['required', 'numeric', 'digits:16', 'unique:'.User::class.',nik,'.$request->user()->id],
+            'nik' => ['required', 'numeric', 'digits:9', 'unique:'.User::class.',nik,'.$request->user()->id],
             'phone' => ['required', 'numeric', 'digits_between:10,15', 'unique:'.User::class.',phone,'.$request->user()->id],
         ]);
         $user = Auth::user();
@@ -57,7 +57,7 @@ class ProfileController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class.',email,'.$user->id],
-            'nik' => ['required', 'numeric', 'digits:16', 'unique:'.User::class.',nik,'.$user->id],
+            'nik' => ['required', 'numeric', 'digits:9', 'unique:'.User::class.',nik,'.$user->id],
             'phone' => ['required', 'numeric', 'digits_between:10,15', 'unique:'.User::class.',phone,'.$user->id],
         ]);
         // $request->user()->fill($request->validated());

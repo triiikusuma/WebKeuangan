@@ -38,7 +38,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'nik' => ['required', 'numeric', 'digits:16', 'unique:'.User::class],
+            'nik' => ['required', 'numeric', 'digits:9', 'unique:'.User::class],
             'phone' => ['required', 'numeric', 'digits_between:10,15', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -95,7 +95,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'nik' => ['required', 'numeric', 'digits:16', 'unique:'.User::class],
+            'nik' => ['required', 'numeric', 'digits:9', 'unique:'.User::class],
             'phone' => ['required', 'numeric', 'digits_between:10,15', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
